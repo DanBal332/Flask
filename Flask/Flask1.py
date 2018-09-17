@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from Account import RegistrationForm, LoginForm
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '86a96f50cbfe444358b8'
+app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
@@ -18,17 +18,19 @@ class User(db.Model):
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}', {self.image_file}')"
+        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
-    class Post(db.Model):
-        id = db.Column(db.Integer, primary_key=True)
-        title = db.Column(db.String(100), nullable=False)
-        date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-        content = db.Column(db.Text, nullabel=False)
-        user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-        def __repr__(self):
-            return f"Post('{self.title}', '{self.date_posted}')"
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    content = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return f"Post('{self.title}', '{self.date_posted}')"
+
 
 posts = [
     {
