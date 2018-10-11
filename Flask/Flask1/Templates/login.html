@@ -8,7 +8,7 @@
 
             <div class="form-group">
                 {{ form.email.label(class="form-control-label") }}
-
+                 <!--Customising error pop ups for form-->
                 {% if form.email.errors %}
                   {{ form.email(class="form-control form-control-lg is-invalid") }}
                 <div class="invalid-feedback">
@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 {{ form.password.label(class="form-control-label") }}
-
+                 <!--Customising error pop ups for form-->
                 {% if form.password.errors %}
                   {{ form.password(class="form-control form-control-lg is-invalid") }}
                 <div class="invalid-feedback">
