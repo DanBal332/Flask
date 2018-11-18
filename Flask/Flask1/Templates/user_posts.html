@@ -1,6 +1,7 @@
 <!--Copying default page layout-->
 {% extends "layout.html" %}
 {% block content %}
+<h1 class="mb-3"> Posts by {{ user.username }} ({{ posts.total }}) </h1>
     {% for post in posts.items %}
 <!--Setting bootstrap classes to specific parts of page-->
 <!--Setting layout of variables to print if post made by user)-->
@@ -19,9 +20,9 @@
     {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
       {% if page_num %}
         {% if posts.page == page_num %}
-          <a class="btn btn-primary mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+          <a class="btn btn-primary mb-4" href="{{ url_for('user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
         {% else %}
-          <a class="btn btn-outline-primary mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+          <a class="btn btn-outline-primary mb-4" href="{{ url_for('user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
         {% endif %}
       {% else %}
         ...
