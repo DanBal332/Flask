@@ -1,12 +1,24 @@
 <!--Copying default page layout-->
 {% extends "layout.html" %}
 {% block content %}
-<div class="content-section">
+
+<body class="back-img">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--<div class="content-section">-->
+        <div class="col-md-12">
+<div class="reg-form">
     <!--Method for form-->
+    <div class="login-text">
     <form method="POST" action="">
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4"> Join Today </legend>
+            <img src="/static/profile_pics/default.jpg" class="avatar">
+            <legend class="border-bottom mb-4 text-center">Join Today</legend>
             <div class="form-group">
                 {{ form.username.label(class="form-control-label") }}
                 <!--Customising error pop ups for form-->
@@ -67,11 +79,13 @@
         <div class="form-group">
             {{ form.submit(class="btn btn-primary") }}
         </div>
-    </form>
-</div>
-<div class="border-top pt-3">
-    <small class="text-muted">
+        <small class="text-muted">
         Already Have An Account? <a class="ml-2" href="{{ url_for('users.login') }}">Sign In</a>
-    </small>
+        </small>
+    </form>
+    </div>
+</div>
+
+        </div>
 </div>
 {% endblock content %}
