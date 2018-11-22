@@ -5,10 +5,7 @@
 <body class="back-img">
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
+
 <!--<div class="content-section">-->
         <div class="col-md-12">
 <div class="reg-form">
@@ -79,9 +76,11 @@
         <div class="form-group">
             {{ form.submit(class="btn btn-primary") }}
         </div>
+        <div class="pad-bot">
         <small class="text-muted">
         Already Have An Account? <a class="ml-2" href="{{ url_for('users.login') }}">Sign In</a>
         </small>
+        </div>
     </form>
     </div>
 </div>
